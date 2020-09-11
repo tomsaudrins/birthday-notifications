@@ -1,4 +1,9 @@
 const secondsUntilMorning = () => {
+ /*
+ * Calculates the difference between now
+ * and 8 am next morning and returns the
+ * time in ms.
+ */
   const dateNow = new Date();
   const dateNight = new Date(
     dateNow.getFullYear(),

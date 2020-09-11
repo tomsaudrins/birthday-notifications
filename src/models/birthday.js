@@ -17,6 +17,10 @@ const birthdaySchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  event: {
+    type: String,
+    default: "birthday"
+  }
 });
 
 const Birthday = mongoose.model('Birthday', birthdaySchema);

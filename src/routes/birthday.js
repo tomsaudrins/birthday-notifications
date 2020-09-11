@@ -3,18 +3,15 @@ const router = express.Router();
 const Birthday = require("../models/birthday");
 
 router.get("/birthdays", async (req, res) => {
-  console.log(parseInt(req.query.day));
   const dateNow = new Date();
-  const options =
+  const searchOptions =
     req.query.listAll == "true"
       ? {}
       : {
           month: parseInt(req.query.month) || dateNow.getMonth() + 1,
           day: parseInt(req.query.day) || dateNow.getDate(),
         };
-  console.log(options)
-  const birthdays = await Birthday.find(options);
-  console.log(birthdays);
+  const birthdays = await Birthday.find(searchOptions);
   if (!birthdays.length)
     return res.status(404).json({
       error:
